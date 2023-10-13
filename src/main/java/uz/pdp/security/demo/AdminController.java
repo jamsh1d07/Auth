@@ -38,7 +38,7 @@ public class AdminController {
         ApiResponse update = userService.update(id,adminDto);
         return ResponseEntity.ok().body(update);
     }
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('admin:delete')")
     @Hidden
     public HttpEntity<?> delete(@PathVariable Integer id) {

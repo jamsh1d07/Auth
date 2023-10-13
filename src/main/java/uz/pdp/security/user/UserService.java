@@ -51,17 +51,20 @@ public class UserService {
     public ApiResponse save(Integer id) {
         if (Objects.isNull(id)) return new ApiResponse("Bad Request",false, HttpStatus.BAD_REQUEST);
         Optional<User> optionalUser = repository.findById(id);
-        if (!optionalUser.isPresent()) return new ApiResponse("Not Found",false,HttpStatus.NOT_FOUND);
-        User user = optionalUser.get();
-        user.setRole(Role.ADMIN);
-        User saved = repository.save(user);
-        return new ApiResponse("New Admin Succes",true,saved);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.setRole(Role.ADMIN);
+            User saved = repository.save(user);
+            return new ApiResponse("New Admin Succes", true, saved);
+        } else {
+            return new ApiResponse("Not Found", false, HttpStatus.NOT_FOUND);
+        }
     }
 
     public ApiResponse update(Integer id, AdminDto adminDto) {
         if (Objects.isNull(id)) return new ApiResponse("Bad Request",false, HttpStatus.BAD_REQUEST);
         Optional<User> optionalUser = repository.findById(id);
-        if (!optionalUser.isPresent()) return new ApiResponse("Not Found",false,HttpStatus.NOT_FOUND);
+        if (optionalUser.isEmpty()) return new ApiResponse("Not Found",false,HttpStatus.NOT_FOUND);
         User user = optionalUser.get();
         user.setFirstname(adminDto.getFirstname());
         user.setLastname(adminDto.getLastname());
@@ -75,7 +78,7 @@ public class UserService {
     public ApiResponse delete(Integer id) {
         if (Objects.isNull(id)) return new ApiResponse("Bad Request",false, HttpStatus.BAD_REQUEST);
         Optional<User> optionalUser = repository.findById(id);
-        if (!optionalUser.isPresent()) return new ApiResponse("Not Found",false,HttpStatus.NOT_FOUND);
+        if (optionalUser.isEmpty()) return new ApiResponse("Not Found",false,HttpStatus.NOT_FOUND);
         User user = optionalUser.get();
         user.setRole(Role.USER);
         User delete = repository.save(user);
