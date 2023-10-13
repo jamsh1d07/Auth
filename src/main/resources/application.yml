@@ -2,9 +2,9 @@ spring:
   application:
     name: auth-app
   datasource:
-    url: jdbc:postgresql://dpg-ckkgcckl4vmc739smslg-a.singapore-postgres.render.com:5432/auth_app_89ja
-    username: auth_app_89ja_user
-    password: aA7mbTARxBnm0fc2RgX9iyiZWU7c0CMS
+    url: jdbc:postgresql://containers-us-west-179.railway.app:6418/railway
+    username: postgres
+    password: N5QFEgNdfCZJzLeH23qT
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
