@@ -1,8 +1,10 @@
 spring:
+  application:
+    name: auth-app
   datasource:
-    url: jdbc:postgresql://localhost:5432/jwt_security
-    username: postgres
-    password: jamshid2000
+    url: jdbc:postgresql://dpg-ckkgcckl4vmc739smslg-a.singapore-postgres.render.com:5432/auth_app_89ja
+    username: auth_app_89ja_user
+    password: aA7mbTARxBnm0fc2RgX9iyiZWU7c0CMS
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
