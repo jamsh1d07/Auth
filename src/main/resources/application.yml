@@ -2,9 +2,9 @@ spring:
   application:
     name: auth-app
   datasource:
-    url: jdbc:postgresql://containers-us-west-179.railway.app:6418/railway
+    url: jdbc:postgresql://monorail.proxy.rlwy.net:22711/railway
     username: postgres
-    password: N5QFEgNdfCZJzLeH23qT
+    password: G3G22aFg-BC2a*Fc*1F2FfCBD-6FEEFb
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
