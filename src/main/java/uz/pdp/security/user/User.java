@@ -1,5 +1,6 @@
 package uz.pdp.security.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import uz.pdp.security.token.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,6 +33,7 @@ public class User implements UserDetails {
   private Role role;
 
   @OneToMany(mappedBy = "user")
+  @JsonIgnore
   private List<Token> tokens;
 
   @Override

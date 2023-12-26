@@ -15,7 +15,7 @@ import uz.pdp.security.user.UserService;
 @PreAuthorize("hasRole('ADMIN')")
 public class AdminController {
 
-    UserService userService;
+    final UserService userService;
 
     @GetMapping
     @PreAuthorize("hasAuthority('admin:read')")

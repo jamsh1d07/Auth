@@ -41,9 +41,7 @@ public class UserService {
 
     public ApiResponse getAll(String role) {
 
-        List<User> adminList = repository.findAllByRoleEquals(role);
-
-
+        List<User> adminList = repository.findAllByRoleEquals(Role.valueOf(role));
         return new ApiResponse("All Admins",true,adminList);
 
     }
